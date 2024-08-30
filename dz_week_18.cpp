@@ -40,13 +40,37 @@ public:
 
     }
 };
-
+void complex_sum(complex_num z1, complex_num z2) {
+    int sum_1 = z1.a + z2.a;
+    int sum_2 = z1.b + z2.b;
+    cout << "sum1 = " << sum_1 << ' ' << "sum2 = " << sum_2 << endl;
+    if (sum_1 == 0 && sum_2 == 0) {
+        cout << "the sum is: " << 0 << endl;
+    }
+    else if (sum_2 > 0) {
+        cout << "the sum is: " << sum_1<<" + " << sum_2 << "i" << endl;
+    }
+    else if (sum_2 < 0) {
+        cout << "the sum is: " << sum_1<<" - " << sum_2*(-1) << "i" << endl;
+    }
+    else if (sum_2 == 0){
+        cout << "the sum is: " << sum_1<< endl;
+    }
+    
+    
+    
+    
+}
 int main()
 {
-    int a, b;
-    cout << "enter a and b: "; cin >> a >> b;
+    int a, b,c,d;
+    cout << "enter first complex num (a and b): "; cin >> a >> b;
+    cout << "enter second complex num (c and d): "; cin >> c>> d;
     complex_num z1(a, b);
+    complex_num z2(c, d);
+    cout << "\tFIRST\n\n";
     z1.cout_com_num(z1.a, z1.b);
-
-
+    cout << "\tSECOND\n\n";
+    z2.cout_com_num(z2.a, z2.b);
+    complex_sum(z1, z2);
 }
