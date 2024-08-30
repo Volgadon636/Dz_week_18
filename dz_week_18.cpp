@@ -63,6 +63,7 @@ void complex_sum(complex_num z1, complex_num z2) {
 }
 int main()
 {
+    int g;
     int a, b,c,d;
     cout << "enter first complex num (a and b): "; cin >> a >> b;
     cout << "enter second complex num (c and d): "; cin >> c>> d;
