@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <string>
 using namespace std;
 //1 task start
 class complex_num {
@@ -104,44 +105,93 @@ void complex_div(complex_num z1, complex_num z2) {
 //2 task start
 class car {
 public:
-    unsigned short length
+    float length
         ,clearance
         ,volume_e
         ,power
         ,diametr_w;
-    string colour, type_transsion;
+
+    string colour;
+    string type_transsion;
+    string name;
+    
     
 };
-void enter_c(car a) {
-    cout << "enter length of the car: (M)"; cin >> a.length;
-    cout << "enter clearance of the car: (mm)"; cin >> a.clearance;
-    cout << "enter volume of the engine for the car: (M^3)"; cin >> a.volume_e;
-    cout << "enter power of the engine for the car: "; cin >> a.power;
-    cout << "enter diametr of wheels for the car: "; cin >> a.diametr_w;
-    cout << "enter colour of the car: "; cin >> a.colour;
-    cout << "enter a type of transsion for the car: "; cin >> a.type_transsion;
+void enter_c(car &a) {
+    cout << "Enter the name of your car: ";cin>> a.name; 
+    cout << "\n";
+    cout << "enter length of the car: (M) "; cin >> a.length;
+    cout << "enter clearance of the car: (mm) "; cin >> a.clearance;
+    cout << "enter volume of the engine for the car: (M^3) "; cin >> a.volume_e;
+    cout << "enter power of the engine for the car: (HP) "; cin >> a.power;
+    cout << "enter diametr of wheels for the car: (mm) "; cin >> a.diametr_w;
+    cout << "enter colour of the car: "; getline(cin, a.colour);
+    cout << "enter a type of transsion for the car: "; getline(cin, a.type_transsion);
 }
-void cout_c(car a) {
-    cout << "length of the car: "<<a.length<<endl;
-    cout << "clearance of the car: "<<a.clearance << endl;
-    cout << "volume of the engine for the car: "<< a.volume_e << endl;
-    cout << "power of the engine for the car: "<< a.power << endl;
-    cout << "diametr of wheels for the car: "<<a.diametr_w << endl;
-    cout << "colour of the car: "<<a.colour << endl;
-    cout << "Type of transsion for the car: "<<a.type_transsion << endl;
+void cout_c (car a) {
+    cout << "Name of your car: " << a.name << "\n\n";
+    cout << "length of the car: (M) " << a.length << endl;
+    cout << "clearance of the car: (mm) " << a.clearance << endl;
+    cout << "volume of the engine for the car: (M^3) " << a.volume_e << endl;
+    cout << "power of the engine for the car: (HP) " << a.power << endl;
+    cout << "diametr of wheels for the car: (mm) " << a.diametr_w << endl;
+    cout << "colour of the car: " << a.colour << endl;
+    cout << "Type of transsion for the car: " << a.type_transsion << endl << endl;
 }
 int main()
 {
-    
+    setlocale(LC_ALL, "rus");
    
     {
         cout << "\texercise 2\n\n";
-        car audi;
-        enter_c(audi);
-        cout_c(audi);
+        int ch =0, e = 0;
+        const unsigned short size_a = 20;
+        car array[size_a];
+        do {
+            cout << "Список действий: " << endl;
+            cout << "1. задание значений" << endl;
+            cout << "2. вывод машин списком" << endl;
+            cout << "3. поиск" << endl;
+            cout << "0. чтобы выйти" << endl;
+            cout << "\nEnter your decision: "; cin >> ch;
+            car r;
+            switch (ch)
+            {
+
+            case 1: 
+            {
+                
+                enter_c(r);
+                
+                array[e] = r;
+                e += 1;
 
 
+                
+                break;
+            }
+            case 2:
+            {
+                cout << "List of your cars: \n" << endl;
+                cout_c(r);
+                /*for (short i = 0; i < size_a; ++i) {
+                    cout_c(array[i]);
+                }*/
+                break;
+            }
+            case 3:
+            {
 
+            }
+              
+
+            }
+            
+        } while (ch != 0);
+        
+
+
+        
 
 
 
