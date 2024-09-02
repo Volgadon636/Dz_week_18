@@ -117,50 +117,65 @@ public:
     
     
 };
+
 void enter_c(car &a) {
-    cout << "Enter the name of your car: ";cin>> a.name; 
-    cout << "\n";
-    cout << "enter length of the car: (M) "; cin >> a.length;
-    cout << "enter clearance of the car: (mm) "; cin >> a.clearance;
-    cout << "enter volume of the engine for the car: (M^3) "; cin >> a.volume_e;
-    cout << "enter power of the engine for the car: (HP) "; cin >> a.power;
-    cout << "enter diametr of wheels for the car: (mm) "; cin >> a.diametr_w;
-    cout << "enter colour of the car: "; getline(cin, a.colour);
-    cout << "enter a type of transsion for the car: "; getline(cin, a.type_transsion);
+    cout << "Enter the name of your car: ";getline(cin,a.name); cout << "\n";
+    
+    cout << "enter length of the car: (M) "; cin >> a.length; cout << "\n";
+    cout << "enter clearance of the car: (mm) "; cin >> a.clearance; cout << "\n";
+    cout << "enter volume of the engine for the car: (M^3) "; cin >> a.volume_e; cout << "\n";
+    cout << "enter power of the engine for the car: (HP) "; cin >> a.power; cout << "\n";
+    cout << "enter diametr of wheels for the car: (mm) "; cin >> a.diametr_w; cout << "\n";
+    cout << "enter colour of the car: ";getchar();getline(cin, a.colour); cout << "\n";
+    cout << "enter a type of transsion for the car: ";getline(cin, a.type_transsion); cout << "\n";
 }
 void cout_c (car a) {
-    cout << "Name of your car: " << a.name << "\n\n";
-    cout << "length of the car: (M) " << a.length << endl;
-    cout << "clearance of the car: (mm) " << a.clearance << endl;
-    cout << "volume of the engine for the car: (M^3) " << a.volume_e << endl;
-    cout << "power of the engine for the car: (HP) " << a.power << endl;
-    cout << "diametr of wheels for the car: (mm) " << a.diametr_w << endl;
-    cout << "colour of the car: " << a.colour << endl;
-    cout << "Type of transsion for the car: " << a.type_transsion << endl << endl;
+    cout << "\n\tName of your car: " << a.name << "\n\n";
+    cout << "length of the car: (M) " << a.length; cout << "\n\n";
+    cout << "clearance of the car: (mm) " << a.clearance; cout << "\n\n";
+    cout << "volume of the engine for the car: (M^3) " << a.volume_e; cout << "\n\n";
+    cout << "power of the engine for the car: (HP) " << a.power; cout << "\n\n";
+    cout << "diametr of wheels for the car: (mm) " << a.diametr_w; cout << "\n\n";
+    cout << "colour of the car: " << a.colour; cout << "\n\n";
+    cout << "Type of transsion for the car: " << a.type_transsion; cout << "\n\n\n";
 }
 int main()
 {
     setlocale(LC_ALL, "rus");
    
+    /*car w1;
+    enter_c(w1);
+    cout_c(w1);
+    system("pause");
+    */
+
+
+    
     {
         cout << "\texercise 2\n\n";
         int ch =0, e = 0;
         const unsigned short size_a = 20;
+        unsigned short act_size = 0;
         car array[size_a];
         do {
             cout << "Список действий: " << endl;
             cout << "1. задание значений" << endl;
             cout << "2. вывод машин списком" << endl;
-            cout << "3. поиск" << endl;
-            cout << "0. чтобы выйти" << endl;
-            cout << "\nEnter your decision: "; cin >> ch;
-            car r;
+            cout << "3. поиск по имени" << endl;
+            cout << "0. чтобы выйти" << endl << endl;
+
+            cout << "\nEnter your decision: ";
+            cin >> ch;
+            
+            getchar();
+            system("cls");
             switch (ch)
             {
 
             case 1: 
             {
-                
+                act_size += 1;
+                car r;
                 enter_c(r);
                 
                 array[e] = r;
@@ -172,16 +187,32 @@ int main()
             }
             case 2:
             {
+                
                 cout << "List of your cars: \n" << endl;
-                cout_c(r);
-                /*for (short i = 0; i < size_a; ++i) {
+                
+                for (short i = 0; i < act_size; ++i) {
                     cout_c(array[i]);
-                }*/
+                }
                 break;
             }
             case 3:
             {
-
+                string search_c;
+                cout << "Enter the name of car, which you wanna find: "; getline(cin, search_c);
+                cout << "List of cars according to your choice: \n" << endl;
+                int g = 0;
+                for (int i = 0; i < size_a; ++i) {
+                    if (array[i].name == search_c) {
+                        cout_c(array[i]);
+                    }
+                    else {
+                        ++g;
+                    }
+                }
+                if (g == size_a) {
+                    cout << "there are no cars with this name!\n\n";
+                }
+                break;
             }
               
 
