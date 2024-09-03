@@ -139,6 +139,8 @@ void cout_c (car a) {
     cout << "colour of the car: " << a.colour; cout << "\n\n";
     cout << "Type of transsion for the car: " << a.type_transsion; cout << "\n\n\n";
 }
+
+
 int main()
 {
     setlocale(LC_ALL, "rus");
@@ -197,21 +199,176 @@ int main()
             }
             case 3:
             {
-                string search_c;
-                cout << "Enter the name of car, which you wanna find: "; getline(cin, search_c);
-                cout << "List of cars according to your choice: \n" << endl;
-                int g = 0;
-                for (int i = 0; i < size_a; ++i) {
-                    if (array[i].name == search_c) {
-                        cout_c(array[i]);
+                string search_w;
+                unsigned short search_n;
+                char choice;
+                unsigned short g;
+                cout << "Выбор поиска: " << endl;
+                cout << "1. по имени" << endl;
+                cout << "2. длинна машины" << endl;
+                cout << "3. Клиренс" << endl;
+                cout << "4. Объем двигателя" << endl ;
+                cout << "5. Мощность двигателя" << endl;
+                cout << "6. Диаметр колес" << endl;
+                cout << "7. Цвет" << endl;
+                cout << "8. Тип трансмиссии" << endl;
+                cout << "0. Чтобы выйти" << endl;
+                cout << "\n\nEnter your decision: ";
+                cin >> choice;
+
+                getchar();
+                cout << "\n";
+                switch (choice) {
+                case '1':
+                {
+                    cout << "Enter the name of car, which you wanna find: "; getline(cin, search_w);
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].name == search_w) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
                     }
-                    else {
-                        ++g;
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
                     }
+                    break;
                 }
-                if (g == size_a) {
-                    cout << "there are no cars with this name!\n\n";
+                case '2':
+                {
+                    cout << "Enter the length of car, which you wanna find: ";cin>>search_n;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].length == search_n) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
                 }
+                case '3':
+                {
+                    cout << "Enter the clearance of car, which you wanna find: "; cin >> search_n;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].clearance == search_n) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
+                }
+                case '4':
+                {
+                    cout << "Enter the volume of the engine of this car, which you wanna find: "; cin >> search_n;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].volume_e == search_n) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
+                }
+                case '5':
+                {
+                    cout << "Enter power of the engine of this car, which you wanna find: "; cin >> search_n;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].power== search_n) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
+                }
+                case '6':
+                {
+                    cout << "Enter the diametr of wheels for this car, which you wanna find: "; cin >> search_n;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].diametr_w == search_n) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
+                }
+                case '7':
+                {
+                    cout << "Enter the colour of this car, which you wanna find: "; cin >> search_w;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].colour == search_w) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
+                }
+                case '8':
+                {
+                    cout << "Enter the type of transmittion for this car, which you wanna find: "; cin >> search_w;
+                    cout << "List of cars according to your choice: \n" << endl;
+                    int g = 0;
+                    for (int i = 0; i < size_a; ++i) {
+                        if (array[i].type_transsion == search_w) {
+                            cout_c(array[i]);
+                        }
+                        else {
+                            ++g;
+                        }
+                    }
+                    if (g == size_a) {
+                        cout << "there are no cars with this name!\n\n";
+                    }
+                    break;
+                }
+                case '0': {
+                    break;
+                }
+                }
+                
+                
                 break;
             }
               
